@@ -12,9 +12,16 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/login', { email, password });
-      localStorage.setItem('token', response.data.token);
-      alert('Login successful');
+      if (response.status === 200) {
+        alert('Login successful');
+        localStorage.setItem('token', response.data.token);
+        // Redirigir a otra página
+        window.location.href = '/dashboard'; // Cambia la URL según tu ruta
+      } else {
+        alert('Invalid email or password');
+      }
     } catch (error) {
+      console.error('Login error:', error);
       alert('Invalid email or password');
     }
   };
