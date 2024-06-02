@@ -35,22 +35,25 @@ const Dashboard = () => {
   }, [token]);
 
   return (
-    <Container>
-      <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ padding: 1 }}>
-        <Typography variant="p" gutterBottom sx={{ alignSelf: 'center' }}>
+    <Container maxWidth="xl"> {/* Que el contenedor tenga un ancho máximo suficiente */}
+      <Box display="flex" flexDirection="column" alignItems="stretch" sx={{ padding: 2 }}>
+        <Typography variant="h4" gutterBottom sx={{ alignSelf: 'center' }}>
           Tickets
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<AddIcon />}
-          component={Link}
-          to="/create-ticket"
-          sx={{ marginBottom: 2 }}
-        >
-          Nuevo
-        </Button>
-        <TicketTable tickets={tickets} />
+        <Box display="flex" justifyContent="flex-start" sx={{ marginBottom: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<AddIcon />}
+            component={Link}
+            to="/create-ticket"
+          >
+            Nuevo
+          </Button>
+        </Box>
+        <Box width="100%"> {/* Que la caja contenedora de la tabla ocupe todo el ancho disponible */}
+          <TicketTable tickets={tickets} />
+        </Box>
       </Box>
     </Container>
   );
