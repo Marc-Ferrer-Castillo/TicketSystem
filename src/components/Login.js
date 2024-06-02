@@ -1,7 +1,6 @@
 // src/components/Login.js
 import React, { useState } from 'react';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
-import logo from '../logo.svg';
 import axios from 'axios';
 
 const Login = () => {
